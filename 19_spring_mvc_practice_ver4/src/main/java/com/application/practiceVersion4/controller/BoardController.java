@@ -1,6 +1,7 @@
 package com.application.practiceVersion4.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.application.practiceVersion4.dto.BoardDTO;
 import com.application.practiceVersion4.service.BoardService;
 
-@Controller
+
+//오류 발생: org.springframework.beans.factory.UnsatisfiedDependencyException:
+//Error creating bean with name 'boardController':
+//Unsatisfied dependency expressed through field 'boardService'
+//해결: xml에서 parameterType= 'boardId' 로 잘못 작성됨
 @RequestMapping("/board")
 public class BoardController {
 	
