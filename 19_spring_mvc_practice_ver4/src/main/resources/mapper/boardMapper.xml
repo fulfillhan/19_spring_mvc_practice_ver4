@@ -28,7 +28,7 @@ FROM BOARD
 WHERE BOARD_ID=#{boardId}
 </select>
 
-<update id="updateReadCnt" parameterType="boardId">
+<update id="updateReadCnt" parameterType="long">
 UPDATE BOARD
 SET READ_CNT = READ_CNT+1
 WHERE BOARD_ID = #{boardId}
@@ -45,6 +45,9 @@ SET SUBJECT=#{subject},
 	CONTENT=#{content}
 WHERE BOARD_ID=#{boardId}
 </update>
-
+<delete id="deleteBoard" parameterType="long">
+DELETE FROM BOARD
+WHERE BOARD_ID=#{boardId}
+</delete>
 
 </mapper>

@@ -16,5 +16,7 @@ public interface BoardService {
 
 	public void updateBoard(BoardDTO boardDTO);
 
+	public void deleteBoard(long boardId);
+
 
 }

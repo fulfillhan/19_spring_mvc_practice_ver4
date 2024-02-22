@@ -2,6 +2,7 @@ package com.application.practiceVersion4.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void updateBoard(BoardDTO boardDTO) {
 		boardDAO.updateBoard(boardDTO);
+	}
+
+	@Override
+	public void deleteBoard(long boardId) {
+		boardDAO.deleteBoard(boardId);
+		
 	}
 
 }

@@ -2,6 +2,7 @@ package com.application.practiceVersion4.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import com.application.practiceVersion4.service.BoardService;
 //Error creating bean with name 'boardController':
 //Unsatisfied dependency expressed through field 'boardService'
 //해결: xml에서 parameterType= 'boardId' 로 잘못 작성됨
+@Controller
 @RequestMapping("/board")
 public class BoardController {
 	
@@ -119,6 +121,17 @@ public class BoardController {
 		return jsScript;
 	}
 	
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(Model model, @RequestParam("boardId") long boardId) {
+		
+		model.addAttribute("boardId", boardId);
+		return "board/deleteBoard";
+	}
+	@PostMapping("deleteBoard")
+	public String deleteBoard(@ModelAttribute long boardId) {
+		boardService.deleteBoard(boardId);
+		return "";
+	}
 	
 
 }
